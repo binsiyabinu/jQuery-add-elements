@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Case Study 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+    body{
+      background-color: black;
+    }
+        #bid {
+            background-color: #fc4e4e;
+            padding: 20px;
+            border: 1px solid gray;
+            color: palevioletred font-weight: bold;
+            width: 50%;
+        }
+
+        #bid:hover {
+            padding: 20px;
+            color: red;
+        }
+
+        #button2 {
+            background-color: lightcoral;
+            border: 1px solid gray;
+            color: cadetblue font-weight: bold;
+
+        }
+
+        .countfield {
+            background-color: #ea3660;
+            padding: 15px;
+            border: 1px solid gray;
+            color: red ;
+            font-weight: bold;
+            width: 2%;
+            margin-left: 750px;
+            margin-top: 2%;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <div class="countfield"></div>
+
+
+    <center>
+
+        <button id="button1">Click here!!</button>
+        <br><br>
+        <div class="logDiv">
+
+            <div id="bid" onclick="myFunction()" class="one">COMPUTER</div>
+            <div id="bid" onclick="myFunction()" class="two">LAPTOP</div>
+            <div id="bid" onclick="myFunction()" class="three">TABLET</div>
+            <div id="bid" onclick="myFunction()" class="four">MOBILE PHONE</div>
+            <div id="bid" onclick="myFunction()" class="five">NOTEPAD</div>
+
+        </div><br><br><input id="newtext" type="text">
+        <button id="button2">Add</button><br><br>
+    </center>
+    <script>
+        function myFunction() {
+            var btn = document.getElementById('bid');
+            btn.remove('btn');
+            var count = ($("div #bid").length);
+            $(".countfield").text(count);
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#button1").click(function() {
+                $(".one").fadeToggle();
+                $(".two").fadeToggle("slow");
+                $(".three").fadeToggle(1000);
+                $(".four").fadeToggle(1500);
+                $(".five").fadeToggle(2000);
+
+            });
+
+
+
+
+            $("#button2").click(function() {
+
+                var newtext = $("#newtext").val();
+                $(".logDiv").append('<div id="bid" onclick="myFunction()" class="five">' + newtext + '</div>');
+                var count = ($("div #bid").length);
+                $(".countfield").text(count);
+            });
+
+
+        });
+    </script>
+</body></html>
